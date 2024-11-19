@@ -12,7 +12,6 @@
         background-color: rgb(86, 1, 159);}
     #da1{position: relative;
         left: 10%;
-        top: -30%;
         color: white;}
     #da2{position: absolute;
         width: 20%;
@@ -53,6 +52,54 @@
     .p2{position: absolute;
         top: 18%;
         left: 5%;}
+    .ap1{position: absolute;
+        left: 30%;
+        top: 15%;
+        font-size: larger;}
+    #i1{position: absolute;
+        width: 50%;
+        height: 7%;
+        border: 5px solid rgb(86, 1, 159);
+        border-radius: 20px;
+        top: 25%;
+        left: 25%;}
+    #ab1{position: absolute;
+        width: 50%;
+        height: 7%;
+        border: 5px solid rgb(86, 1, 159);
+        border-radius: 20px;
+        background-color: rgb(86, 1, 159);
+        top: 40%;
+        left: 25%;
+        color: white;}
+    #ab2{position: absolute;
+        width: 50%;
+        height: 7%;
+        border: 5px solid rgb(86, 1, 159);
+        border-radius: 20px;
+        background-color: rgb(86, 1, 159);
+        top: 55%;
+        left: 25%;
+        color: white;}
+    #ab3{position: absolute;
+        width: 50%;
+        height: 7%;
+        border: 5px solid rgb(86, 1, 159);
+        border-radius: 20px;
+        background-color: rgb(86, 1, 159);
+        top: 70%;
+        left: 25%;
+        color: white;}
+    .p3{position: absolute;
+        top: 80%;
+        left: 30%;}
+    .p4{position: absolute;
+        top: 86%;
+        left: 30%;}
+    .p5{position: absolute;
+        top: 92%;
+        left: 30%;}
+    
 </style>
 <body>
     <div id="da">
@@ -65,6 +112,7 @@
     <div id="dd"></div>
 </body>
 <script>
+    var o = []
 function kezd() {
     var a = ('<p class="p1">A lapról</p><p class="p2">Ez a weboldal arra van, hogy jobban ismertessük az új gazdasági működést. Elolvashatod az új törvényeket, a térkép segítségével átláthtod az országot és a nyersanyagokat, és kiszámíthatod várható adózási összeged.Segítséget kérhetsz pbp.kozpont24@gmail.com-on, és elmagyarázzuk a meg nemm értett részeket.</p>')
     document.getElementById("dd").innerHTML = a
@@ -73,7 +121,42 @@ function tv() {
     var b = ('<p class="p1">Az új törvények</p><p class="p2"></p>')
     document.getElementById("dd").innerHTML = b}
 function tp() {}
-function adk() {}
+function adk() {
+    var c = ('<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét:</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>')
+    document.getElementById("dd").innerHTML = c
+}
+function own() {
+    var d1 = Number(prompt("Hány fajta nyersanyagod van?"))
+    for(i = 0;i<d1;i++) {
+        var x = prompt("Nyersanyag neve:")
+        var y = Number(prompt(x+" mennyisége(tonna):"))
+        var z = Number(prompt(x+" maximum ára(árstop értéke PB):"))
+        var f = {n: x,
+                m: y,
+                s: z,
+        }
+        o.push(f)
+    }
+}
+function print() {
+    var p = ""
+    for(i = 0; i < o.length;i++) {
+        p += o[i].n+": "+o[i].m+" tonna\n"
+    }
+    alert(p)
+}
+function calc() {
+    var sz = 0
+    for(i = 0; i < o.length ; i++) {
+        sz += parseFloat(o[i].s)*0.75*parseFloat(o[i].m)
+    }
+    sz += parseFloat(document.getElementById("i1").value)
+    var e = '<p class="p3">SZJA(10%): '+sz*0.1
+        e += ' PB</p><p class="p4">TBJ(3%): '+sz*0.03
+        e += ' PB</p><p class="p5">Összes adó: '+sz*0.13
+        e += ' PB</p>'
+    document.getElementById("dd").innerHTML += e
+}
 
 kezd()
 
