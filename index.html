@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gazdasági Segédlő</title>
+</head>
+<style>
+    #da{position: absolute;
+        height: 7%;
+        width: 100%;
+        background-color: rgb(86, 1, 159);}
+    #da1{position: relative;
+        left: 10%;
+        top: -30%;
+        color: white;}
+    #da2{position: absolute;
+        width: 20%;
+        height: 90%;
+        top: 5%;
+        left: 28%;
+        background-color: rgb(86, 1, 159);
+        border: none;
+        color: white;}
+    #da3{position: absolute;
+        width: 20%;
+        height: 90%;
+        top: 5%;
+        left: 46%;
+        background-color: rgb(86, 1, 159);
+        border: none;
+        color: white;}
+    #da4{position: absolute;
+        width: 20%;
+        height: 90%;
+        top: 5%;
+        left: 64%;
+        background-color: rgb(86, 1, 159);
+        border: none;
+        color: white;}
+    #da5{position: absolute;
+        width: 20%;
+        height: 90%;
+        top: 5%;
+        left: 82%;
+        background-color: rgb(86, 1, 159);
+        border: none;
+        color: white;}
+    .p1{position: absolute;
+        top: 12%;
+        left: 3%;
+        font-size: larger;}
+    .p2{position: absolute;
+        top: 18%;
+        left: 5%;}
+</style>
+<body>
+    <div id="da">
+        <p id="da1">Gazdasági Segédlő</p>
+        <button id="da2" onclick="kezd()">Kezdőlap</button>
+        <button id="da3" onclick="tv()">Törvények</button>
+        <button id="da4" onclick="tp()">Térkép</button>
+        <button id="da5" onclick="adk()">Adó kalkulátor</button>
+    </div>
+    <div id="dd"></div>
+</body>
+<script>
+function kezd() {
+    var a = ('<p class="p1">A lapról</p><p class="p2">Ez a weboldal arra van, hogy jobban ismertessük az új gazdasági működést. Elolvashatod az új törvényeket, a térkép segítségével átláthtod az országot és a nyersanyagokat, és kiszámíthatod várható adózási összeged.Segítséget kérhetsz pbp.kozpont24@gmail.com-on, és elmagyarázzuk a meg nemm értett részeket.</p>')
+    document.getElementById("dd").innerHTML = a
+}
+function tv() {
+    var b = ('<p class="p1">Az új törvények</p><p class="p2"></p>')
+    document.getElementById("dd").innerHTML = b}
+function tp() {}
+function adk() {}
+
+kezd()
+
+</script>
+</html>
