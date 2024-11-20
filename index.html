@@ -99,6 +99,10 @@
     .p5{position: absolute;
         top: 92%;
         left: 30%;}
+    #ah1{position: absolute;
+        top: 30%;
+        left: 40%;
+        font-size: 300%;}
     
 </style>
 <body>
@@ -114,15 +118,19 @@
 <script>
     var o = []
 function kezd() {
-    var a = ('<p class="p1">A lapról</p><p class="p2">Ez a weboldal arra van, hogy jobban ismertessük az új gazdasági működést. Elolvashatod az új törvényeket, a térkép segítségével átláthtod az országot és a nyersanyagokat, és kiszámíthatod várható adózási összeged.Segítséget kérhetsz pbp.kozpont24@gmail.com-on, és elmagyarázzuk a meg nemm értett részeket.</p>')
+    var a = ('<p class="p1">A lapról</p><p class="p2">Ez a weboldal arra van, hogy jobban ismertessük az új gazdasági működést. Elolvashatod az új törvényeket, a térkép segítségével átláthtod az országot és a nyersanyagokat, és kiszámíthatod várható adózási összeged.Segítséget kérhetsz pbp.kozpont24@gmail.com-on, és elmagyarázzuk a meg nem értett részeket.</p>')
     document.getElementById("dd").innerHTML = a
 }
 function tv() {
     var b = ('<p class="p1">Az új törvények</p><p class="p2"></p>')
-    document.getElementById("dd").innerHTML = b}
-function tp() {}
+    document.getElementById("dd").innerHTML = b
+}
+function tp() {
+    var h = '<a href="https://stackblitz.com/edit/palyimaps?embed=1&file=index.html&theme=light&view=preview" id="ah1">Térkép</a>'
+    document.getElementById("dd").innerHTML = h
+}
 function adk() {
-    var c = ('<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét:</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>')
+    var c = ('<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét(PB):</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>')
     document.getElementById("dd").innerHTML = c
 }
 function own() {
@@ -146,16 +154,21 @@ function print() {
     alert(p)
 }
 function calc() {
+    console.log("aa")
     var sz = 0
     for(i = 0; i < o.length ; i++) {
         sz += parseFloat(o[i].s)*0.75*parseFloat(o[i].m)
     }
     sz += parseFloat(document.getElementById("i1").value)
     var e = '<p class="p3">SZJA(10%): '+sz*0.1
-        e += ' PB</p><p class="p4">TBJ(3%): '+sz*0.03
-        e += ' PB</p><p class="p5">Összes adó: '+sz*0.13
+        e += ' PB</p><p class="p4">Össz értéked: '+sz
+        e += ' PB</p><p class="p5">Összes adó: '+sz*0.1
         e += ' PB</p>'
-    document.getElementById("dd").innerHTML += e
+    var f = '<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét(PB):</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>'
+    var g = f+e
+    document.getElementById("dd").innerHTML = g
+    console.log("ww")
+    sz = 0
 }
 
 kezd()
