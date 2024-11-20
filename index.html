@@ -11,13 +11,13 @@
         width: 100%;
         background-color: rgb(86, 1, 159);}
     #da1{position: relative;
-        left: 10%;
+        left: 5%;
         color: white;}
     #da2{position: absolute;
         width: 20%;
         height: 90%;
         top: 5%;
-        left: 28%;
+        left: 20%;
         background-color: rgb(86, 1, 159);
         border: none;
         color: white;}
@@ -25,7 +25,7 @@
         width: 20%;
         height: 90%;
         top: 5%;
-        left: 46%;
+        left: 35%;
         background-color: rgb(86, 1, 159);
         border: none;
         color: white;}
@@ -33,7 +33,7 @@
         width: 20%;
         height: 90%;
         top: 5%;
-        left: 64%;
+        left: 50%;
         background-color: rgb(86, 1, 159);
         border: none;
         color: white;}
@@ -41,7 +41,15 @@
         width: 20%;
         height: 90%;
         top: 5%;
-        left: 82%;
+        left: 65%;
+        background-color: rgb(86, 1, 159);
+        border: none;
+        color: white;}
+    #da6{position: absolute;
+        width: 20%;
+        height: 90%;
+        top: 5%;
+        left: 80%;
         background-color: rgb(86, 1, 159);
         border: none;
         color: white;}
@@ -103,35 +111,43 @@
         top: 30%;
         left: 40%;
         font-size: 300%;}
+    #as{position: absolute;
+        top: 20%;
+        left: 5%;
+        font-size: larger;
+        color: rgb(86, 1, 159);}
+    #dad{position: absolute;}
     
 </style>
-<body>
+<body id="dd">
     <div id="da">
         <p id="da1">Gazdasági Segédlő</p>
         <button id="da2" onclick="kezd()">Kezdőlap</button>
         <button id="da3" onclick="tv()">Törvények</button>
         <button id="da4" onclick="tp()">Térkép</button>
         <button id="da5" onclick="adk()">Adó kalkulátor</button>
+        <button id="da6" onclick="shop()">Áruház</button>
     </div>
-    <div id="dd"></div>
 </body>
 <script>
+    var t = '<div id="da"><p id="da1">Gazdasági Segédlő</p><button id="da2" onclick="kezd()">Kezdőlap</button><button id="da3" onclick="tv()">Törvények</button><button id="da4" onclick="tp()">Térkép</button><button id="da5" onclick="adk()">Adó kalkulátor</button><button id="da6" onclick="shop()">Áruház</button></div>'
     var o = []
+    var s = [{nev: "Ákos",anyag: "Arany",value: "10",m: "4",rl: "24 karátos arany Máramarosból"},]
 function kezd() {
     var a = ('<p class="p1">A lapról</p><p class="p2">Ez a weboldal arra van, hogy jobban ismertessük az új gazdasági működést. Elolvashatod az új törvényeket, a térkép segítségével átláthtod az országot és a nyersanyagokat, és kiszámíthatod várható adózási összeged.Segítséget kérhetsz pbp.kozpont24@gmail.com-on, és elmagyarázzuk a meg nem értett részeket.</p>')
-    document.getElementById("dd").innerHTML = a
+    document.getElementById("dd").innerHTML = t+a
 }
 function tv() {
     var b = ('<p class="p1">Az új törvények</p><p class="p2"></p>')
-    document.getElementById("dd").innerHTML = b
+    document.getElementById("dd").innerHTML = t+b
 }
 function tp() {
     var h = '<a href="https://stackblitz.com/edit/palyimaps?embed=1&file=index.html&theme=light&view=preview" id="ah1">Térkép</a>'
-    document.getElementById("dd").innerHTML = h
+    document.getElementById("dd").innerHTML = t+h
 }
 function adk() {
     var c = ('<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét(PB):</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>')
-    document.getElementById("dd").innerHTML = c
+    document.getElementById("dd").innerHTML = t+c
 }
 function own() {
     var d1 = Number(prompt("Hány fajta nyersanyagod van?"))
@@ -166,9 +182,24 @@ function calc() {
         e += ' PB</p>'
     var f = '<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét(PB):</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>'
     var g = f+e
-    document.getElementById("dd").innerHTML = g
+    document.getElementById("dd").innerHTML = t+g
     console.log("ww")
     sz = 0
+}
+function shop() {
+    var j = ''
+    var a,b,c,d
+    for(i = 0; i < s.length; i++) {
+        console.log(i)
+        a=i*30+25
+        b=i*30+30
+        c=i*30+35
+        d=i*30+40
+        e=i*30+35
+        j+='<p style="position:absolute;left:30%;top:'+a+'%">'+s[i].anyag+' '+s[i].value+' PB-ért</p><p style="position:absolute;left:30%;top:'+b+'%">Rendelkezésre álló anyag mennyisége: '+s[i].m+' tonna</p><p style="position:absolute;left:30%;top:'+c+'%">Eladó: '+s[i].nev+'</p><p style="position:absolute;left:30%;top:'+d+'%">'+s[i].rl+'</p><a style="position:absolute;font-size:larger;color:rgb(86, 1, 159);left:55%;top:'+e+'%" href="mailto:pbp.kozpont24@gmail.com?subject=Nyersanyag%20megvétel&body=Név:%0D%0ANyersanyag: '+s[i].anyag+'%0D%0AVétel%20ár: '+s[i].value+' PB%0D%0AMennyiség(tonna):%0D%0AEladó: '+s[i].nev+'">Megvétel</a>'
+    }
+    var i = '<p class="p1">Feltölthetsz, és vásárolhatsz nyersanyagokat itt. Feltöltésedet 3 napon belül végbevisszük.</p><a id="as" href="mailto:pbp.kozpont24@gmail.com?subject=Nyersanyag%20eladás&body=Név:%0D%0ANyersanyag:%0D%0AEladási%20ár:%0D%0AMennyiség(tonna):%0D%0AMegjegyzés/reklámszöveg:">Nyersanyag feltöltése</a>'
+    document.getElementById("dd").innerHTML = t+i+j
 }
 
 kezd()
