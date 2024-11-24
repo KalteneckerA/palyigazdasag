@@ -142,8 +142,9 @@ function tv() {
     document.getElementById("dd").innerHTML = t+b
 }
 function tp() {
-    var h = '<a href="https://stackblitz.com/edit/palyimaps?embed=1&file=index.html&theme=light&view=preview" id="ah1">Térkép</a>'
-    document.getElementById("dd").innerHTML = t+h
+    const otherWebsiteUrl = "https://palyimaps-2peh--5173--d3acb9e1.local.webcontainer.io/"
+    window.open(otherWebsiteUrl, "_blank")
+    
 }
 function adk() {
     var c = ('<p class="ap1">Add meg az eadásaidból befolyó pénzösszeg össz értékét(PB):</p><input id="i1" type="number"></input><button id="ab1" onclick="own()">Tulajdonban álló értékei bediktálása</button><button id="ab2" onclick="print()">Eddig beírt nyersanyagok kiírása</button><button id="ab3" onclick="calc()">Számítás</button>')
@@ -196,7 +197,7 @@ function shop() {
         c=i*30+35
         d=i*30+40
         e=i*30+35
-        j+='<p style="position:absolute;left:30%;top:'+a+'%">'+s[i].anyag+' '+s[i].value+' PB-ért</p><p style="position:absolute;left:30%;top:'+b+'%">Rendelkezésre álló anyag mennyisége: '+s[i].m+' tonna</p><p style="position:absolute;left:30%;top:'+c+'%">Eladó: '+s[i].nev+'</p><p style="position:absolute;left:30%;top:'+d+'%">'+s[i].rl+'</p><a style="position:absolute;font-size:larger;color:rgb(86, 1, 159);left:55%;top:'+e+'%" href="mailto:pbp.kozpont24@gmail.com?subject=Nyersanyag%20megvétel&body=Név:%0D%0ANyersanyag: '+s[i].anyag+'%0D%0AVétel%20ár: '+s[i].value+' PB%0D%0AMennyiség(tonna):%0D%0AEladó: '+s[i].nev+'">Megvétel</a>'
+        j+='<p style="position:absolute;left:30%;top:'+a+'%">'+s[i].anyag+' '+s[i].value+' PB-ért</p><p style="position:absolute;left:30%;top:'+b+'%">Rendelkezésre álló anyag mennyisége: '+s[i].m+' tonna</p><p style="position:absolute;left:30%;top:'+c+'%">Eladó: '+s[i].nev+'</p><p style="position:absolute;left:30%;top:'+d+'%">'+s[i].rl+'</p><a style="position:absolute;font-size:larger;color:rgb(86, 1, 159);left:55%;top:'+e+'%" href="mailto:pbp.kozpont24@gmail.com?subject=Nyersanyag%20megvétel&body=Név:%0D%0ANyersanyag: '+s[i].anyag+'%0D%0AVétel%20ár: '+s[i].value+' PB%0D%0AMennyiség(tonna):%0D%0AEladó: '+s[i].nev+'%0D%0AEgyéb%20megjegyzés(nem%20kötelező):">Megvétel</a>'
     }
     var i = '<p class="p1">Feltölthetsz, és vásárolhatsz nyersanyagokat itt. Feltöltésedet 3 napon belül végbevisszük.</p><a id="as" href="mailto:pbp.kozpont24@gmail.com?subject=Nyersanyag%20eladás&body=Név:%0D%0ANyersanyag:%0D%0AEladási%20ár:%0D%0AMennyiség(tonna):%0D%0AMegjegyzés/reklámszöveg:">Nyersanyag feltöltése</a>'
     document.getElementById("dd").innerHTML = t+i+j
